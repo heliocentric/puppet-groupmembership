@@ -18,6 +18,8 @@ Puppet::Type.newtype(:groupmembership) do
 
   newproperty(:members, :array_matching => :all) do
     def insync?(is)
+	    Puppet.debug("XXX: is is a " + is.class.to_s);
+      Puppet.debug("XXX: @should is a " + @should.class.to_s);
       if is.is_a?(Array) and @should.is_a?(Array)
         is.sort == @should.sort
       else
