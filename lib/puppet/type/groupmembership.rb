@@ -20,6 +20,7 @@ Puppet::Type.newtype(:groupmembership) do
     def insync?(is)
 	    Puppet.debug("XXX: is is a " + is.class.to_s + " with: " + is.to_s);
 	    Puppet.debug("XXX: @should is a " + @should.class.to_s + " with: " + is.to_s);
+	    Puppet.debug("XXX: result should be:" + (@should.sort == is.sort).to_s);
       if is.is_a?(Array) and @should.is_a?(Array)
         is.sort == @should.sort
       else
